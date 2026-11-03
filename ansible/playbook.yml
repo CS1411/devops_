@@ -1,0 +1,8 @@
+---
+- name: Deploy Service Status Monitor as a systemd service
+  hosts: appservers
+  become: true
+  vars:
+    app_port: 8082
+  roles:
+    - status_monitor

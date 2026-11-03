@@ -1,0 +1,13 @@
+[Unit]
+Description=Service Status Monitor
+After=network-online.target
+
+[Service]
+User={{ app_user }}
+Environment=SERVER_PORT={{ app_port }}
+Environment="MONITOR_URLS={{ monitor_urls }}"
+ExecStart=/usr/bin/java -Xmx256m -jar {{ app_dir }}/{{ app_name }}.jar
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

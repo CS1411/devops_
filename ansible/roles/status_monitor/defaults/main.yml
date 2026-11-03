@@ -1,0 +1,7 @@
+---
+app_name: status-monitor
+app_port: 8080
+app_user: statusmon
+app_dir: /opt/status-monitor
+jar_src: "{{ playbook_dir }}/../target/status-monitor-1.0.jar"
+monitor_urls: "https://www.google.com,https://github.com,https://this-site-does-not-exist.invalid"
