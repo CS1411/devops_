@@ -36,3 +36,5 @@ curl localhost:8081/health
 | `k8s/` | ConfigMap, Deployment (3 replicas, probes) and NodePort Service |
 
 See `RUNBOOK.md` for the full step-by-step demo.
+
+CI: Jenkins job `status-monitor-pipeline` polls this repo every minute and builds `main` automatically.
