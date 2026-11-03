@@ -3,7 +3,7 @@
 Step-by-step demo of the full pipeline. Screenshot names are the files the report expects in
 `report/screenshots/`.
 
-Repository: https://github.com/mirfarzin/devops_p1
+Repository: https://github.com/CS1411/devops_
 
 ## Component 1: Git, Maven, Jenkins
 
