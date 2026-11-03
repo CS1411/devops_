@@ -28,7 +28,7 @@ class MonitorServiceTest {
         MonitorService svc = new MonitorService("https://a.com", url -> 200);
         MonitorService.UrlStatus s = svc.check("https://a.com");
         assertTrue(s.up());
-        assertEquals(200, s.httpCode());
+        assertEquals(201, s.httpCode()); // deliberately wrong: CI safety-net demo
     }
 
     @Test
