@@ -6,4 +6,4 @@ metadata:
     app: status-monitor
 data:
   SERVER_PORT: "8080"
-  MONITOR_URLS: "https://www.google.com,https://github.com,https://this-site-does-not-exist.invalid"
+  MONITOR_URLS: "https://www.google.com,https://github.com,https://www.wikipedia.org,https://this-site-does-not-exist.invalid"
