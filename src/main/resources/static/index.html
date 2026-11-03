@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Service Status Monitor</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 40px; background: #f5f6f8; color: #222; }
+    h1 { margin-bottom: 4px; }
+    #meta { color: #666; margin-bottom: 20px; }
+    table { border-collapse: collapse; width: 100%; max-width: 900px; background: #fff; }
+    th, td { padding: 10px 14px; border-bottom: 1px solid #ddd; text-align: left; }
+    tr.up td:first-child { border-left: 6px solid #2e9d4f; }
+    tr.down td:first-child { border-left: 6px solid #d33; }
+    tr.up .state { color: #2e9d4f; font-weight: bold; }
+    tr.down .state { color: #d33; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Service Status Monitor</h1>
+  <div id="meta">Loading...</div>
+  <table>
+    <thead><tr><th>URL</th><th>State</th><th>HTTP code</th><th>Latency (ms)</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <script>
+    async function load() {
+      const [health, status] = await Promise.all([
+        fetch('health').then(r => r.json()),
+        fetch('status').then(r => r.json())
+      ]);
+      document.getElementById('meta').textContent =
+        'Served by ' + health.servedBy + ' - checked ' + new Date().toLocaleString();
+      document.getElementById('rows').innerHTML = status.map(s =>
+        '<tr class="' + (s.up ? 'up' : 'down') + '"><td>' + s.url + '</td>' +
+        '<td class="state">' + (s.up ? 'UP' : 'DOWN') + '</td>' +
+        '<td>' + (s.httpCode || '-') + '</td><td>' + s.latencyMs + '</td></tr>').join('');
+    }
+    load();
+  </script>
+</body>
+</html>
