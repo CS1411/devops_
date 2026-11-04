@@ -66,6 +66,7 @@ public class MonitorService {
         try {
             HttpRequest req = HttpRequest.newBuilder(URI.create(url))
                     .timeout(Duration.ofSeconds(5))
+                    .header("User-Agent", "status-monitor/1.0") // some sites answer 403 to the default Java client name
                     .GET()
                     .build();
             return HTTP.send(req, HttpResponse.BodyHandlers.discarding()).statusCode();
