@@ -39,3 +39,4 @@ See `RUNBOOK.md` for the full step-by-step demo.
 
 CI: Jenkins job `status-monitor-pipeline` polls this repo every minute and builds `main` automatically.
 Live demo Wed Nov  4 13:57:43 UTC 2026
+Live demo Thu Nov  5 06:25:31 UTC 2026
